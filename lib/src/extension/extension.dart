@@ -47,6 +47,7 @@ class _DriverBinding extends BindingBase with SchedulerBinding, ServicesBinding,
 
   final DataHandler _handler;
   final bool _silenceErrors;
+  final Map<String, FinderConfig> finders;
 
   @override
   void initServiceExtensions() {
@@ -428,7 +429,7 @@ class FlutterDriverExtension {
   }
 
   Finder _createFinder(SerializableFinder finder) {
-    final FinderConstructor constructor = _finders[finder.finderType];
+    final FinderConstructor constructor = _finders[finder.finderType].constructor;
 
     if (constructor == null)
       throw 'Unsupported finder type: ${finder.finderType}';
