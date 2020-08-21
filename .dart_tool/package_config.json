@@ -80,6 +80,12 @@
       "languageVersion": "2.9"
     },
     {
+      "name": "flutter_driver",
+      "rootUri": "file:///F:/flutter/packages/flutter_driver",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///F:/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -230,13 +236,13 @@
       "languageVersion": "2.0"
     },
     {
-      "name": "flutter_driver",
+      "name": "flutter_driver_custom",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-08-21T09:32:38.667088Z",
+  "generated": "2020-08-21T09:40:55.698972Z",
   "generator": "pub",
   "generatorVersion": "2.9.1"
 }
