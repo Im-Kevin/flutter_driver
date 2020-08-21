@@ -2,9 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_driver/flutter_driver.dart';
 import 'package:flutter_driver/src/common/find.dart';
-import 'package:flutter_driver/src/extension/extension.dart';
 
 import '../../common.dart';
 
@@ -12,7 +10,6 @@ void main() {
   test('Ancestor finder serialize', () {
     const SerializableFinder of = ByType('Text');
     final SerializableFinder matching = ByValueKey('hello');
-
 
     final Ancestor a = Ancestor(
       of: of,
