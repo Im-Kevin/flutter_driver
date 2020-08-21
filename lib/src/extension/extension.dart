@@ -87,9 +87,9 @@ class _DriverBinding extends BindingBase with ServicesBinding, SchedulerBinding,
 /// for tests where exceptions are expected. Defaults to false. Any errors
 /// will still be returned in the `response` field of the result JSON along
 /// with an `isError` boolean.
-/// 
+///
 /// `finders` Used to add custom finder
-/// 
+///
 void enableFlutterDriverExtension({ DataHandler handler, bool silenceErrors = false, Map<String, FinderConfig> finders }) {
   assert(WidgetsBinding.instance == null);
   _DriverBinding(handler, silenceErrors, finders ?? <String, FinderConfig>{});
@@ -106,12 +106,6 @@ typedef CommandDeserializerCallback = Command Function(Map<String, String> param
 /// found, if any, or null otherwise.
 typedef FinderConstructor = Finder Function(SerializableFinder finder);
 
-
-/// Signature for factory functions. that deserialize a JSON map to a Finder object. 
-typedef DeserializeFinderFactory = SerializableFinder Function(Map<String, String> json);
-
-/// Signature for functions that deserialize a JSON map to a Finder object.
-typedef DeserializeFinder = SerializableFinder Function(Map<String, String> json, DeserializeFinderFactory finderFactory);
 
 /// Used to register Flutter Driver Finder
 @immutable
@@ -155,9 +149,9 @@ class FlutterDriverExtension {
       'waitFor': _waitFor,
       'waitForAbsent': _waitForAbsent,
       'waitForCondition': _waitForCondition,
-      'waitUntilNoTransientCallbacks': _waitUntilNoTransientCallbacks, // ignore: deprecated_member_use_from_same_package
-      'waitUntilNoPendingFrame': _waitUntilNoPendingFrame, // ignore: deprecated_member_use_from_same_package
-      'waitUntilFirstFrameRasterized': _waitUntilFirstFrameRasterized, // ignore: deprecated_member_use_from_same_package
+      'waitUntilNoTransientCallbacks': _waitUntilNoTransientCallbacks,
+      'waitUntilNoPendingFrame': _waitUntilNoPendingFrame,
+      'waitUntilFirstFrameRasterized': _waitUntilFirstFrameRasterized,
       'get_semantics_id': _getSemanticsId,
       'get_offset': _getOffset,
       'get_diagnostics_tree': _getDiagnosticsTree,
@@ -179,9 +173,9 @@ class FlutterDriverExtension {
       'waitFor': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitFor.deserialize(params, finderFactory),
       'waitForAbsent': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitForAbsent.deserialize(params, finderFactory),
       'waitForCondition': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitForCondition.deserialize(params),
-      'waitUntilNoTransientCallbacks': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitUntilNoTransientCallbacks.deserialize(params), // ignore: deprecated_member_use_from_same_package
-      'waitUntilNoPendingFrame': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitUntilNoPendingFrame.deserialize(params), // ignore: deprecated_member_use_from_same_package
-      'waitUntilFirstFrameRasterized': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitUntilFirstFrameRasterized.deserialize(params), // ignore: deprecated_member_use_from_same_package
+      'waitUntilNoTransientCallbacks': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitUntilNoTransientCallbacks.deserialize(params),
+      'waitUntilNoPendingFrame': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitUntilNoPendingFrame.deserialize(params),
+      'waitUntilFirstFrameRasterized': (Map<String, String> params, DeserializeFinderFactory finderFactory) => WaitUntilFirstFrameRasterized.deserialize(params),
       'get_semantics_id': (Map<String, String> params, DeserializeFinderFactory finderFactory) => GetSemanticsId.deserialize(params, _finderFactory),
       'get_offset': (Map<String, String> params, DeserializeFinderFactory finderFactory) => GetOffset.deserialize(params, finderFactory),
       'get_diagnostics_tree': (Map<String, String> params, DeserializeFinderFactory finderFactory) => GetDiagnosticsTree.deserialize(params, finderFactory),
@@ -348,7 +342,7 @@ class FlutterDriverExtension {
     return finder;
   }
 
-  /// that deserialize a JSON map to a Finder object. 
+  /// that deserialize a JSON map to a Finder object.
   SerializableFinder _finderFactory(Map<String, String> json){
     final String finderType = json['finderType'];
 
